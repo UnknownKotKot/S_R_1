@@ -17,8 +17,8 @@ public class Client {
         vs.setElementAT(2, 0);
         vs.setElementAT(3, 10);
 
-        System.out.println(" Current default vector number of elements: " + vd.getVektorSize());
-        System.out.println(" Current spare vector number of elements: " + vs.getVektorSize());
+        System.out.println(" Current default vector number of elements: " + vd.getVectorSize());
+        System.out.println(" Current spare vector number of elements: " + vs.getVectorSize());
 
 
 

@@ -5,7 +5,7 @@ public class VectorSpares implements Vektor{
     Vector<Integer> v = new Vector<>()  ;
 
     //making Vector to be Spare: collapse zeros in vector and return its "spare" size
-    public int getVektorSize(){
+    public int getVectorSize(){
         Integer vekmass[] = new Integer[v.size()];
         vekmass =v.toArray(vekmass);
         int count =0;

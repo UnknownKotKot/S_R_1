@@ -1,6 +1,6 @@
 public interface Vektor {
 
-    int getVektorSize();
+    int getVectorSize();
     int elementAT(int index);
     void setElementAT(int index, int obj);
     }

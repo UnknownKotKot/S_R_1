@@ -2,9 +2,9 @@ import java.util.Vector;
 
 public class VectorDefault implements Vektor{
 
-    Vector<Integer> v = new Vector<>()  ;
+    Vector<Integer> v ;
 
-    public int getVektorSize(){
+    public int getVectorSize(){
            return v.size();
        };
 
