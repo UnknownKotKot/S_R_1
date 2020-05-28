@@ -2,46 +2,48 @@ import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 import java.util.Vector;
 
-public class DefaultMatrix extends SomeMatrix{
+public class DefaultMatrix extends SomeMatrix {
 
 
-    Integer [][] dfm ;
+    VectorDefault[] vd;
+    int y;
+    int x;
 
-
-
-    @Override
-    public void setVectorToMatrix(int line, Vektor obj) {
-        int vsz = obj.getVectorSize();
-        for(int i =0; i<vsz; ++i ) {
-            dfm[line][i] = obj.elementAT(i);
+    DefaultMatrix(int x, int y) {
+        this.y = y;
+        this.x = x;
+        vd = new VectorDefault[y];
+        int i;
+        for (i = 0; i < vd.length; i++) {
+            vd[i] = new VectorDefault(x);
         }
     }
 
     @Override
-    public Vektor getVectorFromMatrix(int index) {
-        VectorDefault vd = new VectorDefault();
-        int i;
-        for( i = 0; i<=dfm.length; i++) {
+    public void setElToMatrix(int x, int y, int obj) {
+        vd[y].setElementAT(x, obj);
 
-            vd.setElementAT(i, dfm[index][i]);
-        }
-        return vd;
+    }
+
+
+    @Override
+    public int getElFromMatrix(int x, int y) {
+        return vd[y].elementAT(x);
     }
 
     @Override
     public int getCountOfLine() {
-        int lineCount =0;
-        for( int j =0; j<dfm.length;j++){
-            for(int i=0; i<dfm[j].length; i++ ){
-            lineCount++;
-                    }
-    }
-        return lineCount;
+
+        return vd.length;
     }
 
     @Override
     public int getCountOfColumn() {
+        if (vd.length > 0)
+            return vd[0].getVectorSize();
+        else {
+            return 0;
+        }
 
-        return dfm.length;
     }
 }

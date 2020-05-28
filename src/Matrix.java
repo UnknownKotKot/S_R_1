@@ -1,7 +1,7 @@
 public interface Matrix {
 
-    void setVectorToMatrix(int line, Vektor obj);
-    Vektor getVectorFromMatrix(int index);
+    void setElToMatrix(int x, int y, int obj);
+    int getElFromMatrix(int x, int y);
     int getCountOfLine();
     int getCountOfColumn();
 }

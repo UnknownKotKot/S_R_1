@@ -1,21 +1,28 @@
 import java.util.Vector;
 
-public class VectorDefault implements Vektor{
+public class VectorDefault implements Vektor {
 
-    Vector<Integer> v ;
+    Integer[] v;
 
-    public int getVectorSize(){
-           return v.size();
-       };
+    public VectorDefault(int size) {
+        v = new Integer[size];
+    }
 
-    public int elementAT(int index){
-        return v.elementAt(index);
-    };
+    public int getVectorSize() {
+        return v.length;
+    }
+
+
+    public int elementAT(int index) {
+        return v[index];
+    }
+
+
     public void setElementAT(int index,
-                      int obj){
-        v.add(index, obj);
+                             int obj) {
+        v[index] = obj;
 
-    };
+    }
 
 
 }

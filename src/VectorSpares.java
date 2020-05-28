@@ -1,29 +1,42 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
-public class VectorSpares implements Vektor{
+public class VectorSpares implements Vektor {
 
-    Vector<Integer> v = new Vector<>()  ;
+    Map<Integer, Integer> map = new HashMap<>();
 
-    //making Vector to be Spare: collapse zeros in vector and return its "spare" size
-    public int getVectorSize(){
-        Integer vekmass[] = new Integer[v.size()];
-        vekmass =v.toArray(vekmass);
-        int count =0;
-        for(int i = 0; i < vekmass.length; i++)
-            if(vekmass [i] != 0)
-                count++;
+    int size;
 
-        return count;
-    };
+    VectorSpares(int size) {
+        this.size = size;
+    }
 
-    public int elementAT(int index){
-        return v.elementAt(index);
-    };
+        public int getVectorSize() {
+        return size;
+    }
+
+
+    public int elementAT(int index) {
+        if (index >= size || index < 0) {
+            throw new ArrayIndexOutOfBoundsException(index + " - is out of bounds (" + size + ")");
+        }
+        Integer el = map.get(index);
+        if (el == null) {
+            return 0;
+        } else {
+            return el;
+        }
+    }
+
+
     public void setElementAT(int index,
-                             int obj){
-        v.add(index, obj);
-
-    };
+                             int obj) {
+        if (index >= size || index < 0) {
+            throw new ArrayIndexOutOfBoundsException(index + " - is out of bounds (" + size + ")");
+        }
+        map.put(index, obj);
+    }
 
 
 }
