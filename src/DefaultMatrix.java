@@ -5,15 +5,15 @@ import java.util.Vector;
 public class DefaultMatrix extends SomeMatrix{
 
 
-    Integer [][] df ;
+    Integer [][] dfm ;
 
 
 
     @Override
     public void setVectorToMatrix(int line, Vektor obj) {
-        int vs = obj.getVectorSize();
-        for(int i =0; i<vs; ++i ) {
-            df[line][i] = obj.elementAT(i);
+        int vsz = obj.getVectorSize();
+        for(int i =0; i<vsz; ++i ) {
+            dfm[line][i] = obj.elementAT(i);
         }
     }
 
@@ -21,20 +21,18 @@ public class DefaultMatrix extends SomeMatrix{
     public Vektor getVectorFromMatrix(int index) {
         VectorDefault vd = new VectorDefault();
         int i;
-        for( i = 0; i<=df.length; i++) {
+        for( i = 0; i<=dfm.length; i++) {
 
-            vd.setElementAT(df[index][i], df[index][i]);
+            vd.setElementAT(i, dfm[index][i]);
         }
         return vd;
     }
 
-
-
     @Override
     public int getCountOfLine() {
         int lineCount =0;
-        for( int j =0; j<df.length;j++){
-            for(int i=0; i<df[j].length; i++ ){
+        for( int j =0; j<dfm.length;j++){
+            for(int i=0; i<dfm[j].length; i++ ){
             lineCount++;
                     }
     }
@@ -44,6 +42,6 @@ public class DefaultMatrix extends SomeMatrix{
     @Override
     public int getCountOfColumn() {
 
-        return df.length;
+        return dfm.length;
     }
 }
